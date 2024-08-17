@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import MailIcon from "../icons/Mail.astro";
+import SocialPill from "../components/SocialPill.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import CodeIcon from "../icons/Code.astro";
+import Projects from "../components/Projects.astro";
+import Badge from "../components/Badge.astro";
+---
+
+<Layout
+  title="Portfolio de Lorenzo - Desarrollador y Programador Web"
+  description="Contrata a Lorenzo Ferrario como tu próximo desarrollador web. Conoce más sobre sus habilidades y proyectos en su portfolio."
+>
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-32">
+      <div class="flex gap-4 mb-4">
+        <img
+          class="rounded-full shadow-lg size-20"
+          src="../public/totofacha.jpg"
+          alt="Lorenzo Ferrario"
+        />
+		<a
+		href="https://linkedin.com/in/ferrario-lorenzo"
+		target="_blank"
+		rel="noopener"
+		class="flex items-center transition md:justify-center md:hover:scale-105"
+	  >
+		<Badge>Disponible para trabajar</Badge>
+	  </a>
+      </div>
+      <h1
+        class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Lorenzo Ferrario - Analista de Datos
+      </h1>
+      <h2
+        class="text-xl lg:text-2xl opacity-80 text-wrap text-pretty max-w-[700p]"
+      >
+        Soy un apasionado de la tecnología, siempre buscando actualizaciones y
+        mejoras continuas. Como estudiante de Ingeniería en Informática, he
+        perfeccionado mis habilidades y superado varios desafíos. Mi pensamiento
+        crítico y sistémico me permite identificar y optimizar los sistemas a mi
+        alrededor. Mi afición por el entrenamiento de pesas y mi dedicación al
+        boxeo me han inculcado disciplina y excelencia en todas las áreas de mi
+        vida.
+      </h2>
+
+      <nav class="flex gap-2 mt-8 flex-wrap">
+        <SocialPill href="https://www.linkedin.com/in/ferrario-lorenzo/">
+          <LinkedInIcon class="size-4 md:w-6 h-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/totossj2">
+          <GitHubIcon class="size-4 md:w-6 h-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:ferrariolorenzo3@gmail.com">
+          <MailIcon class="size-4 md:w-6 h-6" />
+          ferrariolorenzo3@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <CodeIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>

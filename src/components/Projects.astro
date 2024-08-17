@@ -1,0 +1,47 @@
+--- 
+import AstroIcon from "../icons/Astro.astro";
+import TailwindIcon from "../icons/Tailwind.astro";
+
+const TAGS = {
+    ASTRO : {
+        name: "Astro", 
+        class: "bg-purple-500 text-white", 
+        icon: AstroIcon, 
+    }, 
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-blue-500 text-white",
+        icon: TailwindIcon,
+    }
+}
+
+const PROJECTS = [
+{    
+    title:"CTH - Carpas y escenarios para eventos",
+    description:"Landing Page creada para empresa dedicada al alquiler de carpas, escenarios y mas estructuras para eventos. Optimizada para SEO y velocidad de carga.",
+    link:"https://www.google.com",
+    github:"https://github.com/totossj2/cth",
+    image:"../public/projects/cth.webp",
+    tags:[TAGS.ASTRO, TAGS.TAILWIND]}
+]
+---
+
+{
+    PROJECTS.map(({image, title, description, tags}) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-purple-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map(tag => (
+                    <li>
+                        <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto`} />
+        </article>
+    ))
+}
