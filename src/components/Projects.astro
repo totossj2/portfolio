@@ -1,47 +1,142 @@
 --- 
 import AstroIcon from "../icons/Astro.astro";
 import TailwindIcon from "../icons/Tailwind.astro";
+import PostgreIcon from "../icons/Postgres.astro";
+import ExpoIcon from "../icons/Expo.astro";
+import ReactNativeIcon from "../icons/React.astro";
+import SupabaseIcon from "../icons/Supabase.astro";
+import AndroidIcon from "../icons/Android.astro";
+import JavaIcon from "../icons/Java.astro";
+import SQLSever from "../icons/SQLServer.astro";
 
 const TAGS = {
-    ASTRO : {
-        name: "Astro", 
-        class: "bg-purple-500 text-white", 
-        icon: AstroIcon, 
-    }, 
+    ASTRO: {
+        name: "Astro",
+        class: "bg-purple-900 text-white",
+        icon: AstroIcon,
+        link_: "https://astro.build/",
+    },
     TAILWIND: {
         name: "Tailwind CSS",
-        class: "bg-blue-500 text-white",
+        class: "bg-blue-900 text-white",
         icon: TailwindIcon,
+        link_: "https://tailwindcss.com/",
+    },
+    POSTGRESQL: {
+        name: "PostgreSQL",
+        class: "bg-blue-900 text-white",
+        icon: PostgreIcon,
+        link_: "https://www.postgresql.org/",
+    },
+    EXPO: {
+        name: "Expo",
+        class: "bg-gray-600 text-white",
+        icon: ExpoIcon,
+        link_: "https://expo.dev/",
+    },
+    REACT_NATIVE: {
+        name: "React Native",
+        class: "bg-purple-900 text-white",
+        icon: ReactNativeIcon,
+        link_: "https://reactnative.dev/",
+    },
+    SUPABASE: {
+        name: "Supabase",
+        class: "bg-green-700 text-white",
+        icon: SupabaseIcon,
+        link_: "https://supabase.com/",
+    },
+    ANDROID: {
+        name: "Android",
+        class: "bg-green-900 text-white",
+        icon: AndroidIcon,
+        link_: "https://www.android.com/",
+    },
+    JAVA: {
+        name: "Java",
+        class: "bg-blue-800 text-white",
+        icon: JavaIcon,
+        link_: "https://www.java.com/",
+    },
+    SQL_SERVER: {
+        name: "SQL Server",
+        class: "bg-black-100 text-white",
+        icon: SQLSever,
+        link_: "https://www.microsoft.com/en-us/sql-server",
     }
 }
 
 const PROJECTS = [
-{    
-    title:"CTH - Carpas y escenarios para eventos",
-    description:"Landing Page creada para empresa dedicada al alquiler de carpas, escenarios y mas estructuras para eventos. Optimizada para SEO y velocidad de carga.",
-    link:"https://www.google.com",
-    github:"https://github.com/totossj2/cth",
-    image:"../public/projects/cth.webp",
-    tags:[TAGS.ASTRO, TAGS.TAILWIND]}
+{
+        title:"Meditalo App",
+        description:"Aplicación móvil de meditación y mindfulness con un enfoque innovador: una comunidad premium de suscripción donde los usuarios pueden meditar en grupo y formar conexiones significativas. Actualmente en desarrollo, pronto estará disponible en Play Store y App Store.",
+        link:"https://meditalo.net/",
+        image:"../public/projects/meditalo.webp",
+        tags:[TAGS.REACT_NATIVE, TAGS.EXPO, TAGS.SUPABASE, TAGS.POSTGRESQL]
+    },
+    {    
+        title:"CTH - Carpas y escenarios para eventos",
+        description:"Landing Page creada para empresa dedicada al alquiler de carpas, escenarios y mas estructuras para eventos. Optimizada para SEO y velocidad de carga.",
+        link:"https://cthcarpas.netlify.app",
+        github:"https://github.com/totossj2/cth",
+        image:"../public/projects/cth.webp",
+        tags:[TAGS.ASTRO, TAGS.TAILWIND]
+    }, 
+    {    
+        title:"DeepClean",
+        description:"Aplicacion Mobile Android creada para unir personal de limpieza con clientes que necesitan sus servicios. Permite a los usuarios registrarse, loguearse, ver y aceptar trabajos.",
+        link:"https://www.canva.com/design/DAGOM-FMosY/75BhjoLDYA2R5bZ4IR9iPA/view?utm_content=DAGOM-FMosY&utm_campaign=designshare&utm_medium=link&utm_source=editor",
+        github:"https://github.com/totossj2/DeepClean",
+        image:"../public/projects/deepclean.webp",
+        tags:[TAGS.ANDROID, TAGS.JAVA, TAGS.SQL_SERVER]
+    }, 
+    
+
+    
+
 ]
 ---
 
-{
-    PROJECTS.map(({image, title, description, tags}) => (
-        <article>
-            <h3 class="text-2xl font-semibold text-purple-200 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-2 flex-row mb-2">
-                {tags.map(tag => (
-                    <li>
-                        <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}>
-                            <tag.icon class="size-4" />
-                            {tag.name}
-                        </span>
-                    </li>
-                ))}
-            </ul>
-            <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto`} />
-        </article>
-    ))
-}
+
+    <div class="flex flex-col gap-y-16">{
+        PROJECTS.map(({link, github, image, title, description, tags}) => (
+            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+                <div class="w-full md:w-1/2">
+                <div class="relative mb-4 flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                    <img alt="Proyecto" class="object-cover object-top w-full  transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+                </div>
+                <ul class="flex  flex-wrap  gap-x-2">
+                    {tags.map(tag => (
+                        <a href={tag.link_} role="link" target="_blank" class="mb-3 rounded-full text-base text-white transition bg-gray-800 border border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group  hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
+                            <li >
+                                <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                                    <tag.icon class="size-4" />
+                                    <span class="whitespace-nowrap">{tag.name}</span>
+                                </span>
+                            </li>
+                        </a>
+                    ))}
+                    </ul>
+
+                </div>
+                <div class="w-full md:w-1/2 md:max-w-lg">
+                <h3 class="text-2xl font-bold text-gray-100">{title}</h3>
+                <div class="flex flex-wrap mt-2">
+                    <div class="mt-2 text-gray-400">{description}</div>
+                    <footer class="flex items-end justify-start mt-4 gap-x-4">
+                    {github && (
+                        <a href={github} role="link" target="_blank" class="inline-flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-base text-white transition bg-gray-800 border border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
+                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg>
+                            Código
+                        </a>
+                    )}
+                    <a href={link} role="link" target="_blank" class="inline-flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-base text-white transition bg-gray-800 border border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
+                        <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        Preview
+                    </a>
+                    </footer>
+                </div>
+                </div>
+            </article>
+        ))}
+    </div>

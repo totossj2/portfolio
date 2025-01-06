@@ -8,6 +8,10 @@ import SectionContainer from "../components/SectionContainer.astro";
 import CodeIcon from "../icons/Code.astro";
 import Projects from "../components/Projects.astro";
 import Badge from "../components/Badge.astro";
+import WorkXp from "../components/WorkXp.astro";
+import WorkIcon from "../icons/Work.astro";
+import Work from "../icons/Work.astro";
+
 ---
 
 <Layout
@@ -15,7 +19,7 @@ import Badge from "../components/Badge.astro";
   description="Contrata a Lorenzo Ferrario como tu próximo desarrollador web. Conoce más sobre sus habilidades y proyectos en su portfolio."
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
+    <SectionContainer id="sobre-mi" class="py-44 pb-32">
       <div class="flex gap-4 mb-4">
         <img
           class="rounded-full shadow-lg size-20"
@@ -62,6 +66,15 @@ import Badge from "../components/Badge.astro";
           ferrariolorenzo3@gmail.com
         </SocialPill>
       </nav>
+    </SectionContainer>
+
+    <SectionContainer id="work">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Work class="size-7" />
+        Experiencia Laboral
+      </h2>
+      <WorkXp />
+
     </SectionContainer>
 
     <SectionContainer id="proyectos">
